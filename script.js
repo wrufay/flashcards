@@ -8,8 +8,31 @@ const INFO = document.querySelector("#card-info");
 let currentCard = 0; // this global variable kinda sketchy
 let currentSide = "Front";
 // too many variables of the same thing Lol
-
+let currentUID = null;
 let cards = [];
+
+// setup functions
+const getUID = () => {
+  let UID = localStorage.getItem("cards_user");
+  if (!UID) {
+    UID = "user_" + Date.now();
+  }
+  localStorage.setItem("cards_user", UID);
+  return UID;
+};
+
+const saveCards = () => {
+  if (currentUID) {
+    localStorage.setItem(`cards_${currentUID}`, JSON.stringify(cards));
+  }
+};
+
+const loadCards = () => {
+  const saved = localStorage.getItem(`cards_${currentUID}`);
+  cards = saved ? JSON.parse(saved) : [];
+  currentCard = 0;
+  currentSide = "Front";
+};
 
 const setCard = () => {
   if (cards.length == 0) {
@@ -44,11 +67,13 @@ const nextCard = () => {
 const displayError = () => {
   console.log("Please add a card!");
 };
+
+// add card function
 const addCard = (curCard) => {
   let cardFront;
   let cardBack;
 
-  //clean up this shit?
+  //clean up?
   if (INPUTS[0].value && INPUTS[1].value) {
     INPUTS.forEach((input, i) => {
       switch (input.id) {
@@ -70,6 +95,8 @@ const addCard = (curCard) => {
     // if (cards.length == 1) {
     //   CARD.innerText = cards[curCard]['Front']
     // }
+    saveCards();
+    // ye clean up this too. liek you can put the functions inside each other
     setCard();
     console.log(cards[curCard]);
   }
@@ -100,3 +127,8 @@ INPUTS.forEach((input) => {
     if (e.key === "Enter") addCard(cards.length); //idk should i fix this cards.length thing to make it global or --- im just testing
   });
 });
+
+// load cards from the local storage
+currentUID = getUID();
+loadCards();
+setCard();
