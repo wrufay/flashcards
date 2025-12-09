@@ -1,0 +1,119 @@
+@import url("https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@100;400");
+
+body {
+  font-family: "M PLUS Rounded 1c", sans-serif;
+  text-align: center;
+  background: #ebf1fb;
+  color: #173d6a;
+  transition: all 0.5s ease-in-out;
+}
+
+button {
+  font-family: "M PLUS Rounded 1c", sans-serif;
+  color: #173d6a;
+  transition: all 0.15s ease-in-out;
+  cursor: pointer;
+}
+
+h1 {
+  margin-top: 11vh;
+  color: #7b8ba4;
+  font-size: 1.6rem;
+  margin-bottom: 2.4rem;
+}
+
+.flashcard {
+  width: 18rem;
+  height: 8rem;
+  background-color: #97afd1;
+  border-radius: 1rem;
+  margin: auto;
+  padding: 3rem;
+  cursor: pointer;
+  transition: all 0.5s ease;
+}
+.flashcard:hover {
+  transform: scale(1.03, 1.03);
+}
+.card-body {
+}
+#card-content {
+  background-color: #fff;
+  padding: 5px;
+}
+#card-info {
+  color: #ebf1fb;
+}
+.input-container {
+  display: inline-block;
+  position: relative;
+}
+.info-input,
+#add-btn,
+.container,
+#flip-btn,
+#next-btn,
+#delete-btn,
+.button-container,
+.flashcard {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.info-input {
+  border: none;
+  padding: 10px;
+  font-size: 1rem;
+  color: #7b8ba4;
+  width: 17rem;
+  resize: none;
+}
+::placeholder {
+  color: #7b8ba4;
+}
+#add-btn {
+  background: #7b8ba4;
+  border: none;
+  color: #fff;
+  padding: 10px;
+  font-size: 1rem;
+  height: 100%;
+  width: 5rem;
+  margin-left: 0.8rem;
+  border-radius: 0.6rem;
+  cursor: pointer;
+}
+
+#flip-btn,
+#next-btn,
+#delete-btn {
+  background: #173d6a;
+  border: none;
+  height: 100%;
+  color: #ebf1fb;
+  width: 8rem;
+}
+#flip-btn:hover,
+#next-btn:hover,
+#delete-btn:hover {
+  background: #97afd1;
+}
+
+.button-container {
+  margin-top: 1.2rem;
+  height: 2rem;
+}
+
+#add-btn:hover {
+  font-weight: bold;
+  background-color: #8b9bac;
+}
+.container {
+  margin-top: 2rem;
+  height: 7rem;
+  /*   background: red; */
+}
+.container-all {
+  width: 26rem;
+  margin: 0 auto;
+}
