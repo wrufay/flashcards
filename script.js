@@ -51,6 +51,7 @@ const deleteCard = () => {
   console.log(cards);
 
   if (currentCard > 0) currentCard--;
+  saveCards();
   setCard();
 };
 
